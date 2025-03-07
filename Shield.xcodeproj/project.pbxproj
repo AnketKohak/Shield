@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0672A8FA2D79769C00DAB171 /* Shield.h in Headers */ = {isa = PBXBuildFile; fileRef = 0672A8F92D79769C00DAB171 /* Shield.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06A7BFB02D79CAE900A68F8B /* DeviceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7BFAF2D79CAE900A68F8B /* DeviceDetection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0672A8F62D79769C00DAB171 /* Shield.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shield.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0672A8F92D79769C00DAB171 /* Shield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
+		06A7BFAF2D79CAE900A68F8B /* DeviceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				0672A8F92D79769C00DAB171 /* Shield.h */,
+				06A7BFAF2D79CAE900A68F8B /* DeviceDetection.swift */,
 			);
 			path = Shield;
 			sourceTree = "<group>";
@@ -93,6 +96,7 @@
 				TargetAttributes = {
 					0672A8F52D79769C00DAB171 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -129,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A7BFB02D79CAE900A68F8B /* DeviceDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -288,6 +294,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
