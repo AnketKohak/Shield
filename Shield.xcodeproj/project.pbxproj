@@ -10,6 +10,7 @@
 		0672A8FA2D79769C00DAB171 /* Shield.h in Headers */ = {isa = PBXBuildFile; fileRef = 0672A8F92D79769C00DAB171 /* Shield.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06A7BFB02D79CAE900A68F8B /* DeviceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7BFAF2D79CAE900A68F8B /* DeviceDetection.swift */; };
 		5411BA7E2D7C98570097E2B7 /* JailbreakDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411BA7D2D7C98570097E2B7 /* JailbreakDetection.swift */; };
+		548818492D7DDD5500D3F39A /* FridaAttackDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548818482D7DDD5500D3F39A /* FridaAttackDetection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		0672A8F92D79769C00DAB171 /* Shield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
 		06A7BFAF2D79CAE900A68F8B /* DeviceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetection.swift; sourceTree = "<group>"; };
 		5411BA7D2D7C98570097E2B7 /* JailbreakDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JailbreakDetection.swift; sourceTree = "<group>"; };
+		548818482D7DDD5500D3F39A /* FridaAttackDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridaAttackDetection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 				0672A8F92D79769C00DAB171 /* Shield.h */,
 				06A7BFAF2D79CAE900A68F8B /* DeviceDetection.swift */,
 				5411BA7D2D7C98570097E2B7 /* JailbreakDetection.swift */,
+				548818482D7DDD5500D3F39A /* FridaAttackDetection.swift */,
 			);
 			path = Shield;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A7BFB02D79CAE900A68F8B /* DeviceDetection.swift in Sources */,
+				548818492D7DDD5500D3F39A /* FridaAttackDetection.swift in Sources */,
 				5411BA7E2D7C98570097E2B7 /* JailbreakDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
