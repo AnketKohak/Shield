@@ -1,0 +1,74 @@
+import Foundation
+import UIKit
+
+struct VirtualDeviceDetector {
+    static var isVirtualDevice: Bool {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return checkSimulatorEnvironment() 
+               || checkSimulatorHardwareModel() 
+               || checkSimulatorFilePaths() 
+               || checkUnsupportedFeatures()
+        #endif
+    }
+    
+    // MARK: - Environment Checks
+    private static func checkSimulatorEnvironment() -> Bool {
+        let environment = ProcessInfo.processInfo.environment
+        return environment["SIMULATOR_DEVICE_NAME"] != nil 
+               || environment["SIMULATOR_MODEL_IDENTIFIER"] != nil 
+               || environment["SIMULATOR_RUNTIME_VERSION"] != nil
+    }
+    
+    // MARK: - Hardware Checks
+    private static func checkSimulatorHardwareModel() -> Bool {
+        let model = getHardwareModel()
+        return model == "x86_64" || model == "i386"
+    }
+    
+    private static func getHardwareModel() -> String {
+        var size = 0
+        sysctlbyname("hw.model", nil, &size, nil, 0)
+        var model = [CChar](repeating: 0, count: size)
+        sysctlbyname("hw.model", &model, &size, nil, 0)
+        return String(cString: model)
+    }
+    
+    // MARK: - File System Checks
+    private static func checkSimulatorFilePaths() -> Bool {
+        return checkBundlePath() || checkSandboxPath()
+    }
+    
+    private static func checkBundlePath() -> Bool {
+        return Bundle.main.bundlePath.contains("CoreSimulator")
+    }
+    
+    private static func checkSandboxPath() -> Bool {
+        guard let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path else {
+            return false
+        }
+        return documentsPath.contains("CoreSimulator")
+    }
+    
+    // MARK: - Feature Checks
+    private static func checkUnsupportedFeatures() -> Bool {
+        return !checkTelephonySupport() 
+               || !checkCameraAvailability()
+    }
+    
+    private static func checkTelephonySupport() -> Bool {
+        return UIApplication.shared.canOpenURL(URL(string: "tel://")!)
+    }
+    
+    private static func checkCameraAvailability() -> Bool {
+        return UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+}
+
+// Usage example
+if VirtualDeviceDetector.isVirtualDevice {
+    print("Running on virtual device/simulator")
+} else {
+    print("Running on physical device")
+}
