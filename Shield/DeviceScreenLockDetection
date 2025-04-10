@@ -1,0 +1,46 @@
+//
+//  ViewController.swift
+//  devicescreenlock
+//
+//  Created by Protectt_intern on 10/04/25.
+//
+
+import UIKit
+import LocalAuthentication
+
+func checkDevicePasscodeSet(completion: @escaping (Bool) -> Void) {
+    let context = LAContext()
+    var error: NSError?
+
+    // Check if the device can evaluate the "device owner authentication" policy
+    if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+        completion(true) // Passcode or biometrics are set up
+    } else {
+        // Check if the error indicates no passcode is set
+        if let errorCode = error?.code, errorCode == LAError.passcodeNotSet.rawValue {
+            completion(false) // No passcode
+        } else {
+            // Other errors (e.g., biometrics not enrolled, but passcode is set)
+            completion(true) // Assume passcode exists (biometrics require it)
+        }
+    }
+}
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        checkDevicePasscodeSet { hasPasscode in
+            if hasPasscode {
+                print("Device has a passcode or biometrics set up.")
+            } else {
+                print("Device has NO passcode! Security risk!")
+                // Prompt user to set up a passcode
+            }
+        }
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+
